@@ -5,10 +5,12 @@ const cancelButton = document.getElementById('cancelButton');
 const errorMessage = document.getElementById('errorMessage');
 
 let formData = {}; // Pour stocker les données temporaires du formulaire
-
+   confirmationModal.style.display = "none";
 // Gestion de l'envoi du formulaire
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Empeche l'envoi immédiat sans passer par la modal
+
+    confirmationModal.style.display = "none"; // Empeche la modal de s'afficher au chargement de la page avant de soumettre le formulaire 
 
     // Validation des champs
     const name = document.getElementById('name').value.trim();

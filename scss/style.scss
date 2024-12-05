@@ -2,9 +2,9 @@
 @use 'colors' as c;
 @use 'typo' as t;
 
-.color {
-  color: #00FFCC;
-}
+
+/* PAGE ACCUEIL ET STANDARDISATION */
+
 
 body {
   /* Dégradé de fond en diagonale (-20 degrés) avec plusieurs couleurs semi-transparentes */
@@ -40,6 +40,16 @@ body {
     background-position: 0% 50%;
   }
 }
+
+h1 {
+  color: white;
+}
+
+
+.color {
+  color: #00FFCC;
+}
+
 
 main {
   /* Espacement interne pour rendre le contenu plus lisible */
@@ -157,6 +167,27 @@ a:hover {
   }
 }
 
+
+
+
+/* PAGE CV */
+
+.cv-size {
+  height: 50em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+
+
+
+
+/* PAGE CONTACT */
+
 form {
   /* Limite la largeur maximale du formulaire */
   max-width: 50%;
@@ -240,12 +271,33 @@ button:hover {
 .modal-content {
   /* Centre les éléments dans la modale */
   justify-content: center;
+  background-color: #ccc;
+  border: solid;
+  border-color: transparent;
+  border-radius: 50px;
+  padding: 1em;
+  text-align: center;
 }
 
 .modal-content>p {
   /* Message de confirmation de l'envoi du formulaire */
-  color: red;
+  color: rgb(0, 0, 0);
 }
+
+.modal-content>p:hover {
+  color: rgb(192, 5, 5);
+  transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+/* PAGE REALISATION */
 
 .project-container {
   /* Disposition des cards sur la page */
