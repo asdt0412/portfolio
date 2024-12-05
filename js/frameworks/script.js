@@ -17,12 +17,12 @@ form.addEventListener('submit', function (event) {
 
     errorMessage.textContent = ''; // Réinitialise les erreurs
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message) { // Message si le formulaire est envoyé sans entrer toutes les données
         errorMessage.textContent = 'Tous les champs doivent être remplis.';
         return;
     }
 
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Regex pour le mail
     if (!emailPattern.test(email)) {
         errorMessage.textContent = 'Veuillez entrer une adresse e-mail valide.';
         return;
@@ -47,9 +47,8 @@ cancelButton.addEventListener('click', function () {
 });
 
 
-
-
-const btns = document.querySelectorAll(".navBtn");
+// Menu dynamique 
+const btns = document.querySelectorAll(".navBtn"); 
 const cards = document.querySelectorAll(".contentPages");
 
 btns.forEach(data => {

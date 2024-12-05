@@ -39,12 +39,12 @@ main {
   /* Espacement interne pour rendre le contenu plus lisible */
   padding: 2%;
   /* Marges autour de l'élément principal */
-  margin-left: 20%;
+  margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 5%;
-  /* Couleur du texte issue d'une variable SCSS (non fonctionnelle dans CSS natif) */
-  color: #CCCCCC; /* À adapter si SCSS n'est pas utilisé */
+  /* Couleur du texte issue d'une variable */
+  color: #CCCCCC;
 }
 
 footer {
@@ -148,7 +148,8 @@ label {
   font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
   /* Champs remplissant toute la largeur */
   width: 100%;
   /* Espacement interne pour un meilleur confort */
@@ -210,10 +211,17 @@ button:hover {
   color: red;
 }
 
+.project-container {
+  /* Disposition des cards sur la page */
+  display: flex;
+  flex-direction: wrap;
+  justify-content: space-evenly;
+}
+
 .project-card {
+  /* Card */
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -221,7 +229,8 @@ button:hover {
   max-width: 300px;
 }
 .project-card:hover {
-  transform: translateY(-5px);
+  /* Animations sur le survol de la card */
+  transform: translateY(-15px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 .project-card .project-image {
@@ -231,26 +240,30 @@ button:hover {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.project-card .project-content {
+.project-card .project-hp {
+  /* Personnalisation du contenue global de la card */
   background-color: #88bfc5;
   padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.project-card .project-content .project-title {
+.project-card .project-hp .project-title {
+  /* Personnalisation du titre dans la card */
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #333;
+  color: #000000;
 }
-.project-card .project-content .project-description {
+.project-card .project-hp .project-skills {
+  /* Personnalisation de la description dans la card */
   font-size: 0.9rem;
-  color: #666;
+  color: #000000;
   margin-bottom: 16px;
   line-height: 1.4;
 }
-.project-card .project-content .project-button {
+.project-card .project-hp .project-button {
+  /* Personnalisation du boutton dans la card */
   text-decoration: none;
   background-color: rgba(3, 13, 39, 0.8352941176);
   color: #fff;
@@ -259,7 +272,84 @@ button:hover {
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
-.project-card .project-content .project-button:hover {
+.project-card .project-hp .project-button:hover {
+  /* Survol du boutton */
+  background-color: #00FFCC;
+  color: black;
+}
+
+.project-db {
+  /* Personnalisation du contenue global de la card */
+  background-color: #274aa3;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-db .project-title {
+  /* Personnalisation du titre dans la card */
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+.project-db .project-skills {
+  /* Personnalisation de la description dans la card */
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.project-db .project-button {
+  /* Personnalisation du boutton dans la card */
+  text-decoration: none;
+  background-color: rgba(3, 13, 39, 0.8352941176);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.project-db .project-button:hover {
+  /* Survol du boutton */
+  background-color: #00FFCC;
+  color: black;
+}
+
+.project-acdc {
+  /* Personnalisation du contenue global de la card */
+  background-color: #e92424;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-acdc .project-title {
+  /* Personnalisation du titre dans la card */
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+.project-acdc .project-skills {
+  /* Personnalisation de la description dans la card */
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.project-acdc .project-button {
+  /* Personnalisation du boutton dans la card */
+  text-decoration: none;
+  background-color: rgba(3, 13, 39, 0.8352941176);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.project-acdc .project-button:hover {
+  /* Survol du boutton */
   background-color: #00FFCC;
   color: black;
 }/*# sourceMappingURL=style.css.map */
