@@ -1,0 +1,265 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "FontsECF";
+  src: url(/css/frameworks/webfonts/FiraCode-Light.ttf);
+}
+.color {
+  color: #00FFCC;
+}
+
+body {
+  /* Dégradé de fond en diagonale (-20 degrés) avec plusieurs couleurs semi-transparentes */
+  background: linear-gradient(-20deg, rgba(3, 13, 39, 0.8352941176), rgba(0, 5, 17, 0.9254901961), #061225, rgba(1, 15, 37, 0.862745098));
+  /* Taille étendue du fond pour permettre l'animation fluide */
+  background-size: 400% 400%;
+  /* Animation infinie du fond qui modifie sa position toutes les 20 secondes */
+  animation: gradient 20s ease infinite;
+  /* Occupe toute la hauteur de la fenêtre */
+  height: 100vh;
+  /* Police personnalisée pour tout le corps */
+  font-family: "FontsECF";
+}
+
+/* Animation pour le dégradé de fond */
+@keyframes gradient {
+  0% {
+    /* Position initiale du fond */
+    background-position: 0% 50%;
+  }
+  50% {
+    /* Position intermédiaire du fond */
+    background-position: 100% 50%;
+  }
+  100% {
+    /* Retour à la position initiale */
+    background-position: 0% 50%;
+  }
+}
+main {
+  /* Espacement interne pour rendre le contenu plus lisible */
+  padding: 2%;
+  /* Marges autour de l'élément principal */
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  /* Couleur du texte issue d'une variable SCSS (non fonctionnelle dans CSS natif) */
+  color: #CCCCCC; /* À adapter si SCSS n'est pas utilisé */
+}
+
+footer {
+  /* Espacement interne pour un confort visuel */
+  padding: 10px 0;
+  /* Position fixe en bas de la page */
+  position: fixed;
+  bottom: 0;
+  /* Largeur totale du footer */
+  width: 100%;
+  /* Hauteur fixe */
+  height: 7%;
+}
+
+.home {
+  /* Centrage horizontal via une marge à droite */
+  margin-right: 45%;
+}
+
+.homeButton {
+  /* Fond transparent pour s'intégrer au design */
+  background-color: transparent;
+  /* Bordure personnalisée */
+  border: solid;
+  border-color: #00FFCC;
+  border-radius: 5px;
+  /* Espacement interne */
+  padding: 5px 20px;
+  /* Couleur du texte */
+  color: white;
+  /* Curseur pointer pour indiquer qu'il est cliquable */
+  cursor: pointer;
+  /* Transition pour un effet lisse lors du changement de couleur */
+  transition: background-color 0.5s ease;
+  /* Police personnalisée */
+  font-family: "FontsECF";
+}
+
+/* Effet au survol pour le bouton */
+.homeButton:hover {
+  /* Changement de couleur de fond */
+  background-color: #00FFCC;
+}
+
+nav {
+  /* Centrage vertical des éléments */
+  align-items: center;
+  /* Mise en ligne horizontale */
+  display: flex;
+  /* Alignement à droite des éléments */
+  justify-content: flex-end;
+  /* Espacement interne */
+  padding: 1%;
+}
+
+a {
+  /* Suppression du soulignement des liens */
+  text-decoration: none;
+  /* Couleur initiale des liens */
+  color: white;
+  /* Marges gauche et droite pour espacer les liens */
+  margin-left: 0.5%;
+  margin-right: 5%;
+}
+
+/* Effet au survol pour les liens */
+a:hover {
+  /* Changement de couleur */
+  color: #00FFCC;
+}
+
+.fade-in {
+  /* Applique l'animation de fondu */
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Animation de fondu */
+@keyframes fadeIn {
+  from {
+    /* Départ avec opacité nulle et décalage vertical */
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    /* Terminaison avec opacité totale et position initiale */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+form {
+  /* Limite la largeur maximale du formulaire */
+  max-width: 50%;
+}
+
+label {
+  /* Affiche le label sur une ligne distincte */
+  display: block;
+  /* Espace entre le label et son champ */
+  margin-bottom: 5px;
+  /* Met en gras le texte du label */
+  font-weight: bold;
+}
+
+input, textarea {
+  /* Champs remplissant toute la largeur */
+  width: 100%;
+  /* Espacement interne pour un meilleur confort */
+  padding: 8px;
+  /* Espace sous chaque champ */
+  margin-bottom: 15px;
+  /* Bordure personnalisée */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* Désactive la possibilité d'agrandir les champs */
+  resize: none;
+}
+
+button {
+  /* Espacement interne pour une meilleure visibilité */
+  padding: 10px 20px;
+  /* Couleur de fond verte */
+  background-color: #28a745;
+  /* Couleur du texte */
+  color: white;
+  /* Suppression des bordures natives */
+  border: none;
+  /* Bordures arrondies */
+  border-radius: 4px;
+  /* Indicateur de cliquabilité */
+  cursor: pointer;
+}
+
+/* Effet au survol pour les boutons */
+button:hover {
+  /* Changement de couleur de fond */
+  background-color: #218838;
+}
+
+.btn-cancel {
+  /* Couleur rouge pour indiquer une action d'annulation */
+  background-color: red;
+  color: white;
+  /* Suppression des bordures natives et ajout de bordures arrondies */
+  border: none;
+  border-radius: 4px;
+  /* Indicateur de cliquabilité */
+  cursor: pointer;
+}
+
+/* Effet au survol pour le bouton d'annulation */
+.btn-cancel:hover {
+  /* Rouge plus foncé pour le survol */
+  background-color: rgb(201, 49, 49);
+}
+
+.modal-content {
+  /* Centre les éléments dans la modale */
+  justify-content: center;
+}
+
+.modal-content > p {
+  /* Message de confirmation de l'envoi du formulaire */
+  color: red;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+.project-card .project-image {
+  /* Couverture de l'image */
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.project-card .project-content {
+  background-color: #88bfc5;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-card .project-content .project-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+.project-card .project-content .project-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.project-card .project-content .project-button {
+  text-decoration: none;
+  background-color: rgba(3, 13, 39, 0.8352941176);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.project-card .project-content .project-button:hover {
+  background-color: #00FFCC;
+  color: black;
+}/*# sourceMappingURL=style.css.map */
