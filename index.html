@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio - Angelo Dos Santos Seidita</title>
+    <!-- <link rel="stylesheet" href="css/frameworks/zoning.css"> -->
     <link rel="stylesheet" href="css/frameworks/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,36 +13,136 @@
 <body>
     <header>
         <nav>
-            <div class="home">
-                <button class="homeButton"><a href="index.html">Accueil</a></button>
-            </div>
+            <!-- barre de navigation -->
+            <button aria-label="Accueil" class="homeButton" data-target="accueil"
+                data-href="index.html?page-accueil"><a>Accueil</button>
             <div class="color">01.</div>
-            <a class="navBtn" id="CV" >CV</a>
+            <a href="index.html?page=apropos" data-target="apropos">A propos de moi</a>
             <div class="color">02.</div>
-            <a class="navBtn" href="/html/projets.html">Realisation</a>
+            <a href="index.html?page=realisation" data-target="realisation">Réalisations</a>
             <div class="color">03.</div>
-            <a class="navBtn" href="/html/about.html">A propos de moi</a>
-            <div class="color">04.</div>
-            <a class="navBtn" href="/html/contact.html">Contact</a>
+            <a href="/html/contact.html">Contact</a>
         </nav>
     </header>
-    <main>
-        <div class="fade-in">
+
+    <!-- Animations affichage de bas en haut -->
+    <main class="fade-in">
+        <!-- Section d'Accueil -->
+        <div class="fade-in contentPages" id="accueil">
             <h1 class="center">Bienvenue sur mon Portfolio</h1>
-            <p class="color ">Bonjour, mon nom est</p>
+            <p class="color">Bonjour, mon nom est</p>
             <h1>Angelo Dos Santos Seidita</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam magni cumque beatae provident. Est
-                doloribus temporibus natus, eos quae laudantium debitis tempore pariatur molestiae quam ab ducimus
-                delectus
-                rerum illo!</p>
+            <p class="center">Bienvenue ! Je suis Angelo Dos Santos Seidita, un Développeur dans la conception de sites
+                web <br> À travers ce portfolio, plongez dans mon univers et découvrez mes compétences et mes projets.
+            </p>
+            <!-- carte navigation -->
+            <div class="project-container">
+                <section id="a-propos" class="project-cardHome">
+                    <h2 class="color"><a href="index.html?page=apropos">À propos de moi</a></h2>
+                    <p><strong>Découvrez qui je suis et mon parcours. Passionné par le développement web, je crée des
+                            sites
+                            modernes, efficaces et personnalisés.</strong></p>
+                </section>
+                <!-- carte navigation -->
+                <section id="realisations" class="project-cardHome">
+                    <h2 class="color"><a href="index.html?page=realisation">Réalisations</a></h2>
+                    <p><strong>Voici une sélection de mes projets récents, mettant en avant mes compétences en
+                            conception et
+                            développement web.</strong></p>
+                </section>
+                <!-- carte navigation -->
+                <section id="contact" class="project-cardHome">
+                    <h2 class="color"><a href="/html/contact.html">Contact</a></h2>
+                    <p><strong>Vous souhaitez me contacter ? N'hésitez pas à le faire via le formulaire ou par
+                            email.</strong></p>
+                </section>
+            </div>
         </div>
-        </section>
+
+        <!-- Section A propos -->
+        <div id="apropos" class="contentPages" style="display:none;">
+            <h1 class="center">A propos de moi</h1>
+            <div class="content-container">
+                <!-- Texte du CV -->
+                <div class="text-cv">
+                    <p><strong class="color">Je m'appelle Angelo Dos Santos Seidita </strong> <br>
+                        Je suis en formation pour devenir Développeur Web Full-Stack.
+                    <p>Passionné par l'informatique, <br> je recherche
+                        activement un stage de 3 mois pour approfondir mes compétences techniques.</p>
+                    <p>Je maîtrise les bases du
+                        développement web (HTML, CSS, SCSS, JavaScript)</p>
+                    <p>Je suis prêt à mettre mon sens du détail, mon
+                        esprit
+                        d'équipe et ma curiosité au service d'une équipe dynamique.</p>
+                    <p>Grace a mes expérience professionnelles,
+                        notamment en gestion d'équipe et relation client
+                        je suis habitué à m'adapter à des contextes exigeants et à assurer la satisfaction de mes
+                        interlocuteurs.</p>
+                </div>
+                <!-- CV image  -->
+                <div class="right cv-delay">
+                    <img class="cv-size" src="/assets/img/AngeloDSS-CV.png" alt="CV-AngeloDSS">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Realisation -->
+        <div id="realisation" class="contentPages" style="display:none;">
+            <!-- Titre de Page -->
+            <h1 class="center">Bienvenue sur ma Page de Realisation</h1>
+            <!-- carte Projet -->
+            <section class="project-container" id="Harry-Potter">
+                <div class="project-card">
+                    <img src="/assets/img/card-img/HarryProject.PNG" alt="HarryPotter-Projet" class="project-image" />
+                    <div class="project-hp">
+                        <!-- Titre du Projet -->
+                        <h3 class="project-title">Site Bibliothèque de Livres Harry-Potter</h3>
+                        <!-- Competences Utilisées -->
+                        <p class="project-skills"><strong>
+                                HTML , CSS , BOOTSTRAP , JS</strong>
+                        </p>
+                        <!-- Lien menant au Projet -->
+                        <a href="#" class="project-button">Voir le projet</a>
+                    </div>
+                </div>
+                <!-- carte Projet -->
+                <div class="project-card" id="Dragon-Ball">
+                    <img src="/assets/img/card-img/DbProject.png" alt="DragonBall-Projet" class="project-image" />
+                    <div class="project-db">
+                        <!-- Titre du Projet -->
+                        <h3 class="project-title">Site Dragon Ball Sparking Zero</h3>
+                        <!-- Competences Utilisées -->
+                        <p class="project-skills">
+                            <strong> HTML , CSS</strong>
+                        </p>
+                        <!-- Lien menant au Projet -->
+                        <a href="#" class="project-button">Voir le projet</a>
+                    </div>
+                </div>
+                <!-- carte Projet -->
+                <div class="project-card" id="ACDC">
+                    <img src="/assets/img/card-img/ACDCProject.png" alt="ACDC-Projet" class="project-image" />
+                    <div class="project-acdc">
+                        <!-- Titre du Projet -->
+                        <h3 class="project-title">Site Presentation & Tournée ACDC</h3>
+                        <!-- Competences Utilisées -->
+                        <p class="project-skills">
+                            <strong> HTML , CSS , BOOTSTRAP</strong>
+                        </p>
+                        <!-- Lien menant au Projet -->
+                        <a href="#" class="project-button">Voir le projet</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
         <nav>
-            <a href="#">Mentions legales</a>
+            <!-- barre de navigation -->
+            <a href="html/mentions.html">Mentions légales</a>
         </nav>
     </footer>
+
     <script src="js/frameworks/script.js"></script>
 </body>
 
