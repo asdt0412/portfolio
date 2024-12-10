@@ -77,7 +77,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 1. npm install -g sass
 
 
-2. sass scss/style.scss css/style.css --style compressed
+2. sass scss/style.scss css/style.min.css --style compressed
 
 
 3. sass --watch scss/style.scss:css/style.css
