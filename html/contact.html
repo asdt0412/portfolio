@@ -1,56 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/frameworks/normalize.css">
+    <title>Contactez-moi</title>
+    <!-- <link rel="stylesheet" href="/css/frameworks/zoning.css"> -->
+    <link rel="stylesheet" href="/css/frameworks/normalize.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <div class="home">
-                <button class="homeButton"><a href="../index.html">Accueil</a></button>
-            </div>
+            <!-- barre de navigation -->
+            <button class="homeButton" data-target="accueil" data-href="../index.html?page-accueil">Accueil</button>
             <div class="color">01.</div>
-            <a href="cv.html">CV</a>
+            <a href="../index.html?page=apropos" data-target="apropos">A propos de moi</a>
             <div class="color">02.</div>
-            <a href="projets.html">Realisation</a>
+            <a href="../index.html?page=realisation" data-target="realisation">Réalisations</a>
             <div class="color">03.</div>
-            <a href="about.html">A propos de moi</a>
-            <div class="color">04.</div>
-            <a href="contact.html">Contact</a>
+            <a href="/html/contact.html">Contact</a>
         </nav>
     </header>
+
+    <!-- Section Contact -->
     <main class="fade-in">
-        <h1>Formulaire de Contact</h1>
-        <form id="contactForm">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" placeholder="Entrez votre nom">
+        <section class="contact-section">
+            <h1 class="contact-title">Contactez-moi</h1>
+            <p class="contact-description">Une question ? Remplissez le formulaire et je vous
+                répondrai rapidement !</p>
 
-            <label for="email">E-mail :</label>
-            <input type="email" id="email" name="email" placeholder="Entrez votre e-mail">
+            <div class="contact-container">
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" placeholder="Entrez votre message ici"></textarea>
-
-            <button type="submit">Soumettre</button>
-            <p id="errorMessage" class="error"></p>
-        </form>
-        <div id="confirmationModal" class="modal">
-            <div class="modal-content">
-                <p>Confirmez-vous l'envoi du formulaire ?</p>
-                <button id="confirmButton" class="btn-confirm">Confirmer</button>
-                <button id="cancelButton" class="btn-cancel">Annuler</button>
+                <!-- Formulaire de contact -->
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">Prenom</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Votre Prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                    </div>
+                     <!-- Bouton d'envoi du formulaire -->
+                    <button type="submit" id="submit-btn">Envoyer</button>
+                </form>
+                 <!-- info pour me contacter -->
+                <div class="contact-info">
+                    <h2>Ou contactez-moi directement :</h2>
+                    <p><strong>Email :</strong> angelo.dossantos422@gmail.com</p>
+                    <p><strong>Téléphone :</strong> +33 7 66 91 01 19</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/angelo-dos-santos-524644334"
+                            class="social-icon">LinkedIn</a>
+                        <a href="https://github.com/asdt0412" class="social-icon">GitHub</a>
+                    </div>
+                </div>
             </div>
-        </div>
+            <!-- Modal -->
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <p>Merci pour votre message ! Voulez-vous valider l'envoi ?</p>
+                    <button id="close-modal">Valider</button>
+                    <button type="button" class="btn-cancel" id="cancel-btn">Annuler</button>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <nav>
-            <a href="#">Mentions legales</a>
+            <!-- barre de navigation -->
+            <a href="mentions.html">Mentions légales</a>
         </nav>
     </footer>
     <script src="/js/frameworks/script.js"></script>

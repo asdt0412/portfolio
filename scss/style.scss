@@ -1,301 +1,378 @@
 @use "sass:map";
-@use 'colors' as c;
-@use 'typo' as t;
-
+@use "colors" as c;
+@use "typo" as t;
+@import "_mixins";
 
 /* PAGE ACCUEIL ET STANDARDISATION */
 
-
-body {
-  /* Dégradé de fond en diagonale (-20 degrés) avec plusieurs couleurs semi-transparentes */
-  background: linear-gradient(-20deg, #030d27d5, #000511ec, #061225, #010f25dc);
-
-  /* Taille étendue du fond pour permettre l'animation fluide */
-  background-size: 400% 400%;
-
-  /* Animation infinie du fond qui modifie sa position toutes les 20 secondes */
-  animation: gradient 20s ease infinite;
-
-  /* Occupe toute la hauteur de la fenêtre */
-  height: 100vh;
-
-  /* Police personnalisée pour tout le corps */
-  font-family: 'FontsECF';
-}
-
-/* Animation pour le dégradé de fond */
+/* Animation pour le dégradé de fond qui bouge horizontalement */
 @keyframes gradient {
   0% {
-    /* Position initiale du fond */
     background-position: 0% 50%;
   }
 
   50% {
-    /* Position intermédiaire du fond */
     background-position: 100% 50%;
   }
 
   100% {
-    /* Retour à la position initiale */
     background-position: 0% 50%;
   }
 }
 
-h1 {
-  color: white;
-}
-
-
-.color {
-  color: #00FFCC;
-}
-
-
-main {
-  /* Espacement interne pour rendre le contenu plus lisible */
-  padding: 2%;
-  /* Marges autour de l'élément principal */
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-
-  /* Couleur du texte issue d'une variable */
-  color: map-get(c.$colors, warning);
-}
-
-footer {
-  /* Espacement interne pour un confort visuel */
-  padding: 10px 0;
-
-  /* Position fixe en bas de la page */
-  position: fixed;
-  bottom: 0;
-
-  /* Largeur totale du footer */
-  width: 100%;
-
-  /* Hauteur fixe */
-  height: 7%;
-}
-
-.home {
-  /* Centrage horizontal via une marge à droite */
-  margin-right: 45%;
-}
-
-.homeButton {
-  /* Fond transparent pour s'intégrer au design */
-  background-color: transparent;
-
-  /* Bordure personnalisée */
-  border: solid;
-  border-color: #00FFCC;
-  border-radius: 5px;
-
-  /* Espacement interne */
-  padding: 5px 20px;
-
-  /* Couleur du texte */
-  color: white;
-
-  /* Curseur pointer pour indiquer qu'il est cliquable */
-  cursor: pointer;
-
-  /* Transition pour un effet lisse lors du changement de couleur */
-  transition: background-color 0.5s ease;
-
-  /* Police personnalisée */
-  font-family: 'FontsECF';
-}
-
-/* Effet au survol pour le bouton */
-.homeButton:hover {
-  /* Changement de couleur de fond */
-  background-color: #00FFCC;
-}
-
-nav {
-  /* Centrage vertical des éléments */
-  align-items: center;
-
-  /* Mise en ligne horizontale */
-  display: flex;
-
-  /* Alignement à droite des éléments */
-  justify-content: flex-end;
-
-  /* Espacement interne */
-  padding: 1%;
-}
-
-a {
-  /* Suppression du soulignement des liens */
-  text-decoration: none;
-
-  /* Couleur initiale des liens */
-  color: white;
-
-  /* Marges gauche et droite pour espacer les liens */
-  margin-left: 0.5%;
-  margin-right: 5%;
-}
-
-/* Effet au survol pour les liens */
-a:hover {
-  /* Changement de couleur */
-  color: #00FFCC;
-}
-
-.fade-in {
-  /* Applique l'animation de fondu */
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Animation de fondu */
+/* Animation pour un effet d'apparition avec un mouvement vers le haut */
 @keyframes fadeIn {
   from {
-    /* Départ avec opacité nulle et décalage vertical */
     opacity: 0;
     transform: translateY(50px);
   }
 
   to {
-    /* Terminaison avec opacité totale et position initiale */
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-
-
-
-/* PAGE CV */
-
-.cv-size {
-  height: 50em;
+/* Style global pour le corps de la page */
+body {
+  background: linear-gradient(-20deg, #030d27d5, #051846ec, #061225, #010f25dc);
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+  height: 100vh;
+  font-family: "FontsECF";
 }
 
+/* Style des titres de niveau 1 */
+h1 {
+  color: white;
+}
+
+/* Liens dans les titres de niveau 2 */
+h2 > a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+/* Effet hover sur les liens des titres */
+h2 > a:hover {
+  color: #026669;
+  transition: 1s;
+}
+
+/* Style des paragraphes */
+p {
+  color: white;
+  line-height: 2em;
+}
+
+/* Classe pour colorer un texte en turquoise */
+.color {
+  color: #00ffcc;
+}
+
+/* Centrage horizontal des éléments */
 .center {
   display: flex;
   justify-content: center;
   margin-bottom: 5%;
 }
 
-
-
-
-
-/* PAGE CONTACT */
-
-form {
-  /* Limite la largeur maximale du formulaire */
-  max-width: 50%;
+/* Alignement des éléments à droite */
+.right {
+  display: flex;
+  justify-content: right;
 }
 
+/* Conteneur principal pour le contenu */
+main {
+  padding: 0.5em;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  color: map-get(c.$colors, warning);
+}
+
+/* Style pour le pied de page fixe en bas */
+footer {
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+}
+
+
+
+/* Bouton avec style et effet hover */
+.homeButton {
+  background-color: transparent;
+  border: solid;
+  border-color: #00ffcc;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 auto;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  font-family: "FontsECF";
+
+  &:hover {
+    background-color: #00ffcc;
+
+    a {
+      color: #061225;
+      font-weight: bold;
+    }
+  }
+}
+
+/* Carte de projet avec un effet de survol */
+.project-cardHome {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #121c30;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  padding: 1.5em;
+
+  &:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Barre de navigation alignée à droite */
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1%;
+
+  a {
+    text-decoration: none;
+    color: white;
+    margin-left: 0.5%;
+    margin-right: 5%;
+
+    &:hover {
+      color: #00ffcc;
+    }
+  }
+}
+
+/* Classe pour appliquer une animation d'apparition */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+
+
+
+// PAGES A PROPOS
+
+/* Animation pour un effet d'apparition avec une montée progressive */
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe pour définir la taille du CV et un espacement en haut */
+.cv-size {
+  height: 50em;
+  margin-top: 1.5em;
+}
+
+/* Style pour le texte du CV, avec une taille de police et un espacement des lignes */
+.text-cv {
+  flex: 1;
+  font-size: 18px;
+  line-height: 2;
+
+  > p {
+    margin-bottom: 1.5em;
+  }
+}
+
+/* Conteneur principal pour organiser le contenu avec un espace entre les éléments */
+.content-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10em;
+  /* Espacement horizontal entre les éléments */
+  margin: 10px auto;
+  /* Centre horizontalement et ajoute une marge */
+  max-width: 1200px;
+  /* Largeur maximale du conteneur */
+}
+
+/* Classe pour appliquer une animation d'apparition avec délai */
+.cv-delay {
+  opacity: 0;
+  /* Initialement invisible */
+  animation: appear 1.5s ease-in-out forwards;
+  /* Animation d'apparition */
+  animation-delay: 1s;
+  /* Délai avant le début de l'animation */
+}
+
+
+
+
+
+
+
+// PAGES CONTACT
+
+/* Section principale de contact avec un style de carte */
+.contact-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #121c30;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Titre principal de la section contact, centré et stylé */
+.contact-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Description sous le titre, centré avec une couleur turquoise */
+.contact-description {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00ffcc;
+}
+
+/* Conteneur des éléments de contact, avec un alignement flexible */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Formulaire de contact avec une largeur adaptable */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 10px;
+}
+
+/* Groupe de champs dans le formulaire */
+.form-group {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* Style des labels associés aux champs */
 label {
-  /* Affiche le label sur une ligne distincte */
   display: block;
-
-  /* Espace entre le label et son champ */
   margin-bottom: 5px;
-
-  /* Met en gras le texte du label */
   font-weight: bold;
 }
 
+/* Champs de saisie et zone de texte du formulaire */
 input,
 textarea {
-  /* Champs remplissant toute la largeur */
   width: 100%;
-
-  /* Espacement interne pour un meilleur confort */
   padding: 8px;
-
-  /* Espace sous chaque champ */
-  margin-bottom: 15px;
-
-  /* Bordure personnalisée */
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-
-  /* Désactive la possibilité d'agrandir les champs */
-  resize: none;
+  border-radius: 5px;
 }
 
+/* Bouton du formulaire avec un style et effet hover */
 button {
-  /* Espacement interne pour une meilleure visibilité */
   padding: 10px 20px;
-
-  /* Couleur de fond verte */
-  background-color: #28a745;
-
-  /* Couleur du texte */
+  background-color: #007bff;
   color: white;
-
-  /* Suppression des bordures natives */
   border: none;
-
-  /* Bordures arrondies */
-  border-radius: 4px;
-
-  /* Indicateur de cliquabilité */
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Effet au survol pour les boutons */
-button:hover {
-  /* Changement de couleur de fond */
-  background-color: #218838;
-}
-
-.btn-cancel {
-  /* Couleur rouge pour indiquer une action d'annulation */
-  background-color: red;
-  color: white;
-
-  /* Suppression des bordures natives et ajout de bordures arrondies */
-  border: none;
-  border-radius: 4px;
-
-  /* Indicateur de cliquabilité */
-  cursor: pointer;
-}
-
-/* Effet au survol pour le bouton d'annulation */
-.btn-cancel:hover {
-  /* Rouge plus foncé pour le survol */
-  background-color: rgb(201, 49, 49);
-}
-
-.modal-content {
-  /* Centre les éléments dans la modale */
-  justify-content: center;
-  background-color: #ccc;
-  border: solid;
-  border-color: transparent;
-  border-radius: 50px;
-  padding: 1em;
+/* Informations de contact à afficher dans un bloc */
+.contact-info {
+  flex: 1;
   text-align: center;
+  padding: 20px;
+  color: white;
 }
 
-.modal-content>p {
-  /* Message de confirmation de l'envoi du formulaire */
-  color: rgb(0, 0, 0);
+/* Titres dans la section d'informations de contact */
+.contact-info h2 {
+  margin-bottom: 15px;
+  color: #00ffcc;
 }
 
-.modal-content>p:hover {
-  color: rgb(192, 5, 5);
-  transition: 0.5s;
+/* Paragraphes dans la section d'informations de contact */
+.contact-info p {
+  margin-bottom: 10px;
 }
 
+/* Liens vers les réseaux sociaux */
+.social-links {
+  margin-top: 20px;
+}
 
+/* Icônes des réseaux sociaux avec style et effet hover */
+.social-icon {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #00ffcc;
+  transition: color 0.3s ease;
+}
 
+/* Boîte modale utilisée pour afficher des informations ou des actions */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
 
+/* Contenu de la boîte modale avec un style centré */
+.modal-content {
+  background: #121c30;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
+/* Boutons spécifiques dans la boîte modale */
+.modal-content .btn-cancel {
+  background-color: #dc3545;
+}
 
-
-
+.modal-content .btn-cancel:hover {
+  background-color: #c82333;
+}
 
 /* PAGE REALISATION */
 
@@ -303,7 +380,7 @@ button:hover {
   /* Disposition des cards sur la page */
   display: flex;
   flex-direction: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .project-card {
@@ -329,9 +406,8 @@ button:hover {
     object-fit: cover;
   }
 
-
   .project-hp {
-    /* Personnalisation du contenue global de la card */
+    /* Personnalisation du contenu global de la card */
     background-color: map-get(c.$colors, card-bg-hp);
     padding: 16px;
     display: flex;
@@ -355,7 +431,7 @@ button:hover {
     }
 
     .project-button {
-      /* Personnalisation du boutton dans la card */
+      /* Personnalisation du bouton dans la card */
       text-decoration: none;
       background-color: #030d27d5;
       color: #fff;
@@ -365,8 +441,8 @@ button:hover {
       transition: background-color 0.3s ease;
 
       &:hover {
-        /* Survol du boutton */
-        background-color: #00FFCC;
+        /* Survol du bouton */
+        background-color: #00ffcc;
         color: black;
       }
     }
@@ -374,7 +450,7 @@ button:hover {
 }
 
 .project-db {
-  /* Personnalisation du contenue global de la card */
+  /* Personnalisation du contenu global de la card */
   background-color: map-get(c.$colors, primary);
   padding: 16px;
   display: flex;
@@ -398,7 +474,7 @@ button:hover {
   }
 
   .project-button {
-    /* Personnalisation du boutton dans la card */
+    /* Personnalisation du bouton dans la card */
     text-decoration: none;
     background-color: #030d27d5;
     color: #fff;
@@ -408,15 +484,15 @@ button:hover {
     transition: background-color 0.3s ease;
 
     &:hover {
-      /* Survol du boutton */
-      background-color: #00FFCC;
+      /* Survol du bouton */
+      background-color: #00ffcc;
       color: black;
     }
   }
 }
 
 .project-acdc {
-  /* Personnalisation du contenue global de la card */
+  /* Personnalisation du contenu global de la card */
   background-color: map-get(c.$colors, danger);
   padding: 16px;
   display: flex;
@@ -440,7 +516,7 @@ button:hover {
   }
 
   .project-button {
-    /* Personnalisation du boutton dans la card */
+    /* Personnalisation du bouton dans la card */
     text-decoration: none;
     background-color: #030d27d5;
     color: #fff;
@@ -450,9 +526,292 @@ button:hover {
     transition: background-color 0.3s ease;
 
     &:hover {
-      /* Survol du boutton */
-      background-color: #00FFCC;
+      /* Survol du bouton */
+      background-color: #00ffcc;
       color: black;
     }
   }
+}
+
+
+
+
+
+// PAGE MENTIONS LEGALES //
+
+.legal-container {
+  padding: 20px;
+  background-color: #121c30;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+  color: #ffffff;
+}
+
+div > h3 {
+  color: #00ffcc;
+}
+
+/* Titre des mentions légales */
+.legal-title {
+  font-size: 2.5rem;
+  color: #00ffcc;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Titres secondaires dans les mentions légales */
+.legal-subtitle {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+/* Liens dans les mentions légales */
+.legal-link {
+  color: #00ffcc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: #00bba7;
+  /* Changement de couleur au survol */
+}
+
+/* Pour tout les paragraphes */
+.legal-info {
+  padding: 15px;
+  background-color: #1e2a3a;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5em;
+}
+
+
+
+@media (max-width: 1480px) {
+
+  h1 {
+    font-size: 2rem; /* Réduire la taille du texte pour les tablettes */
+    text-align: center;
+  }
+
+  
+  .homeButton {
+    font-size: 0.9rem; /* Taille du texte pour les boutons plus petits */
+    margin: 0 auto;
+  }
+
+   nav {
+    flex-direction: column; /* Passer la navigation en colonne */
+    justify-content: center; /* Centrer la navigation */
+    padding: 10px; /* Réduire l'espace autour des liens */
+  }
+
+  nav a {
+    margin: 10px 0; /* Espacement entre les liens de la nav */
+  }
+
+
+  .project-card {
+    max-width: 0 auto; /* Prend toute la largeur disponible */
+    min-height: 280px; /* Fixe une hauteur minimum uniforme */
+    margin-bottom: 15px; /* Espacement entre les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto; /* Centrer les cartes */
+    margin-bottom: 3em;
+  }
+  
+  .project-container {
+    flex-direction: column; /* Les cartes restent en colonne */
+    align-items: center; /* Centre les cartes */
+  }
+
+
+}
+
+
+
+@media (max-width: 1024px) {
+  /* Titre h1 */
+  h1 {
+    font-size: 2rem; /* Réduire la taille du texte pour les tablettes */
+    text-align: center;
+  }
+
+  /* Section principale */
+  main {
+    margin: 3% 5%; /* Marges ajustées pour les tablettes */
+    padding: 0.5em; /* Ajout d'un peu de padding pour les tablettes */
+  }
+
+  /* Navigation */
+  nav {
+    flex-direction: column; /* Passer la navigation en colonne */
+    justify-content: center; /* Centrer la navigation */
+    padding: 10px; /* Réduire l'espace autour des liens */
+  }
+
+  nav a {
+    margin: 10px 0; /* Espacement entre les liens de la nav */
+  }
+
+  /* Bouton Home */
+  .homeButton {
+    font-size: 0.9rem; /* Taille du texte pour les boutons plus petits */
+    margin: 0 auto;
+  }
+
+  /* Cartes de projet */
+  .project-cardHome {
+    max-width: 0 auto; /* Réduire la taille des cartes pour les tablettes */
+    margin: 0 auto; /* Centrer les cartes */
+    margin-bottom: 3em;
+  }
+  .project-container {
+    flex-direction: column; /* Les cartes restent en colonne */
+    align-items: center; /* Centre les cartes */
+  }
+
+  .project-card {
+    max-width: 0 auto; /* Prend toute la largeur disponible */
+    min-height: 280px; /* Fixe une hauteur minimum uniforme */
+    margin-bottom: 15px; /* Espacement entre les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto; /* Centrer les cartes */
+    margin-bottom: 3em;
+  }
+
+  .cv-size {
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    margin-top: 1em; /* Réduction de la marge supérieure */
+    height: 50em
+  }
+
+  .text-cv {
+    font-size: 16px; /* Réduction de la taille de la police pour tablette */
+    line-height: 1.8; /* Ajustement de l'espacement des lignes */
+
+    > p {
+      margin-bottom: 1.2em; /* Réduction des marges entre les paragraphes */
+    }
+  }
+
+  .content-container {
+    flex-direction: column; /* Disposition en colonne pour tablette */
+    align-items: center; /* Centre les éléments */
+    gap: 2em; /* Réduction de l'espacement entre les éléments */
+    margin: 20px auto; /* Augmentation de la marge globale */
+    max-width: 90%; /* Réduit la largeur maximale pour s'adapter */
+  }
+}
+
+
+
+/* Mobiles (max-width: 768px) */
+@media (max-width: 960px) {
+  /* Corps de la page */
+  body {
+    overflow-y: auto; /* Permettre le défilement vertical */
+  }
+
+  /* Titre h1 */
+  h1 {
+    font-size: 1.8rem; /* Réduire davantage la taille du texte */
+    text-align: center;
+  }
+
+  /* Section principale */
+  main {
+    margin: 5%;
+    padding: 0.5em;
+  }
+
+  .homeButton {
+    font-size: 0.9rem; /* Taille du texte pour les boutons plus petits */
+    margin: 0 auto;
+  }
+
+  /* Liens de navigation */
+  nav {
+    flex-direction: column; /* Navigation en colonne */
+    justify-content: center;
+    padding: 10px; /* Plus d'espace autour des liens */
+  }
+
+  nav a {
+    margin: 10px 0; /* Espacement entre les liens */
+    font-size: 1rem; /* Réduire la taille des liens */
+  }
+
+  /* Cartes de projet */
+  .project-cardHome {
+    max-width: 100%; /* Occuper toute la largeur de l'écran sur mobile */
+    padding: 1em; /* Réduire le padding des cartes */
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column; /* affichage de card en colonnes */
+  }
+
+  /* Footer */
+  footer {
+    height: auto;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .project-container {
+    flex-direction: column; /* Les cartes restent en colonne */
+    align-items: center; /* Centre les cartes */
+  }
+  /* Carte Realisation */
+  .project-card {
+    max-width: 0 auto; 
+    min-height: 280px;
+    margin-bottom: 15px; 
+    display: flex;
+    flex-direction: column; /* affichage de card en colonnes */
+    justify-content: space-between;
+    align-items: stretch;
+  }
+/* image Carte */
+  .project-image {
+    height: 120px; 
+    object-fit: cover;
+  }
+
+  /* Taile CV */
+  .cv-size {
+    height: auto; 
+    margin-top: 1em; 
+    height: 35em
+  }
+/* Texte CV */
+  .text-cv {
+    font-size: 16px; /* Réduction de la taille de la police pour tablette */
+    line-height: 1.8; /* Ajustement de l'espacement des lignes */
+
+    > p {
+      margin-bottom: 1.2em; /* Réduction des marges entre les paragraphes */
+    }
+  }
+}
+
+@media (max-width: 430px) {
+
+.homeButton {
+  margin: 0 auto;
+}
 }
