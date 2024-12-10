@@ -1,4 +1,4 @@
-// Menu dynamique Fonction
+# Menu dynamique Fonction
 
 FONCTION afficherPageParId(pageId)
     POUR CHAQUE page DANS toutesLesPages
@@ -37,7 +37,7 @@ FIN POUR
 
 
 
-// Form et Modal
+# Form et Modal
 
 
 const formulaire de contact

@@ -267,6 +267,7 @@ textarea {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  resize: none;
 }
 
 /* Bouton du formulaire avec un style et effet hover */
