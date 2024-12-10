@@ -1,0 +1,458 @@
+@use "sass:map";
+@use 'colors' as c;
+@use 'typo' as t;
+
+
+/* PAGE ACCUEIL ET STANDARDISATION */
+
+
+body {
+  /* Dégradé de fond en diagonale (-20 degrés) avec plusieurs couleurs semi-transparentes */
+  background: linear-gradient(-20deg, #030d27d5, #000511ec, #061225, #010f25dc);
+
+  /* Taille étendue du fond pour permettre l'animation fluide */
+  background-size: 400% 400%;
+
+  /* Animation infinie du fond qui modifie sa position toutes les 20 secondes */
+  animation: gradient 20s ease infinite;
+
+  /* Occupe toute la hauteur de la fenêtre */
+  height: 100vh;
+
+  /* Police personnalisée pour tout le corps */
+  font-family: 'FontsECF';
+}
+
+/* Animation pour le dégradé de fond */
+@keyframes gradient {
+  0% {
+    /* Position initiale du fond */
+    background-position: 0% 50%;
+  }
+
+  50% {
+    /* Position intermédiaire du fond */
+    background-position: 100% 50%;
+  }
+
+  100% {
+    /* Retour à la position initiale */
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  color: white;
+}
+
+
+.color {
+  color: #00FFCC;
+}
+
+
+main {
+  /* Espacement interne pour rendre le contenu plus lisible */
+  padding: 2%;
+  /* Marges autour de l'élément principal */
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+  /* Couleur du texte issue d'une variable */
+  color: map-get(c.$colors, warning);
+}
+
+footer {
+  /* Espacement interne pour un confort visuel */
+  padding: 10px 0;
+
+  /* Position fixe en bas de la page */
+  position: fixed;
+  bottom: 0;
+
+  /* Largeur totale du footer */
+  width: 100%;
+
+  /* Hauteur fixe */
+  height: 7%;
+}
+
+.home {
+  /* Centrage horizontal via une marge à droite */
+  margin-right: 45%;
+}
+
+.homeButton {
+  /* Fond transparent pour s'intégrer au design */
+  background-color: transparent;
+
+  /* Bordure personnalisée */
+  border: solid;
+  border-color: #00FFCC;
+  border-radius: 5px;
+
+  /* Espacement interne */
+  padding: 5px 20px;
+
+  /* Couleur du texte */
+  color: white;
+
+  /* Curseur pointer pour indiquer qu'il est cliquable */
+  cursor: pointer;
+
+  /* Transition pour un effet lisse lors du changement de couleur */
+  transition: background-color 0.5s ease;
+
+  /* Police personnalisée */
+  font-family: 'FontsECF';
+}
+
+/* Effet au survol pour le bouton */
+.homeButton:hover {
+  /* Changement de couleur de fond */
+  background-color: #00FFCC;
+}
+
+nav {
+  /* Centrage vertical des éléments */
+  align-items: center;
+
+  /* Mise en ligne horizontale */
+  display: flex;
+
+  /* Alignement à droite des éléments */
+  justify-content: flex-end;
+
+  /* Espacement interne */
+  padding: 1%;
+}
+
+a {
+  /* Suppression du soulignement des liens */
+  text-decoration: none;
+
+  /* Couleur initiale des liens */
+  color: white;
+
+  /* Marges gauche et droite pour espacer les liens */
+  margin-left: 0.5%;
+  margin-right: 5%;
+}
+
+/* Effet au survol pour les liens */
+a:hover {
+  /* Changement de couleur */
+  color: #00FFCC;
+}
+
+.fade-in {
+  /* Applique l'animation de fondu */
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Animation de fondu */
+@keyframes fadeIn {
+  from {
+    /* Départ avec opacité nulle et décalage vertical */
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    /* Terminaison avec opacité totale et position initiale */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* PAGE CV */
+
+.cv-size {
+  height: 50em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+
+
+
+
+/* PAGE CONTACT */
+
+form {
+  /* Limite la largeur maximale du formulaire */
+  max-width: 50%;
+}
+
+label {
+  /* Affiche le label sur une ligne distincte */
+  display: block;
+
+  /* Espace entre le label et son champ */
+  margin-bottom: 5px;
+
+  /* Met en gras le texte du label */
+  font-weight: bold;
+}
+
+input,
+textarea {
+  /* Champs remplissant toute la largeur */
+  width: 100%;
+
+  /* Espacement interne pour un meilleur confort */
+  padding: 8px;
+
+  /* Espace sous chaque champ */
+  margin-bottom: 15px;
+
+  /* Bordure personnalisée */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  /* Désactive la possibilité d'agrandir les champs */
+  resize: none;
+}
+
+button {
+  /* Espacement interne pour une meilleure visibilité */
+  padding: 10px 20px;
+
+  /* Couleur de fond verte */
+  background-color: #28a745;
+
+  /* Couleur du texte */
+  color: white;
+
+  /* Suppression des bordures natives */
+  border: none;
+
+  /* Bordures arrondies */
+  border-radius: 4px;
+
+  /* Indicateur de cliquabilité */
+  cursor: pointer;
+}
+
+/* Effet au survol pour les boutons */
+button:hover {
+  /* Changement de couleur de fond */
+  background-color: #218838;
+}
+
+.btn-cancel {
+  /* Couleur rouge pour indiquer une action d'annulation */
+  background-color: red;
+  color: white;
+
+  /* Suppression des bordures natives et ajout de bordures arrondies */
+  border: none;
+  border-radius: 4px;
+
+  /* Indicateur de cliquabilité */
+  cursor: pointer;
+}
+
+/* Effet au survol pour le bouton d'annulation */
+.btn-cancel:hover {
+  /* Rouge plus foncé pour le survol */
+  background-color: rgb(201, 49, 49);
+}
+
+.modal-content {
+  /* Centre les éléments dans la modale */
+  justify-content: center;
+  background-color: #ccc;
+  border: solid;
+  border-color: transparent;
+  border-radius: 50px;
+  padding: 1em;
+  text-align: center;
+}
+
+.modal-content>p {
+  /* Message de confirmation de l'envoi du formulaire */
+  color: rgb(0, 0, 0);
+}
+
+.modal-content>p:hover {
+  color: rgb(192, 5, 5);
+  transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+/* PAGE REALISATION */
+
+.project-container {
+  /* Disposition des cards sur la page */
+  display: flex;
+  flex-direction: wrap;
+  justify-content: space-evenly;
+}
+
+.project-card {
+  /* Card */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+
+  &:hover {
+    /* Animations sur le survol de la card */
+    transform: translateY(-15px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-image {
+    /* Couverture de l'image */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+
+  .project-hp {
+    /* Personnalisation du contenue global de la card */
+    background-color: map-get(c.$colors, card-bg-hp);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .project-title {
+      /* Personnalisation du titre dans la card */
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .project-skills {
+      /* Personnalisation de la description dans la card */
+      font-size: 0.9rem;
+      color: #000000;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .project-button {
+      /* Personnalisation du boutton dans la card */
+      text-decoration: none;
+      background-color: #030d27d5;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        /* Survol du boutton */
+        background-color: #00FFCC;
+        color: black;
+      }
+    }
+  }
+}
+
+.project-db {
+  /* Personnalisation du contenue global de la card */
+  background-color: map-get(c.$colors, primary);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .project-title {
+    /* Personnalisation du titre dans la card */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+
+  .project-skills {
+    /* Personnalisation de la description dans la card */
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .project-button {
+    /* Personnalisation du boutton dans la card */
+    text-decoration: none;
+    background-color: #030d27d5;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      /* Survol du boutton */
+      background-color: #00FFCC;
+      color: black;
+    }
+  }
+}
+
+.project-acdc {
+  /* Personnalisation du contenue global de la card */
+  background-color: map-get(c.$colors, danger);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .project-title {
+    /* Personnalisation du titre dans la card */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+
+  .project-skills {
+    /* Personnalisation de la description dans la card */
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .project-button {
+    /* Personnalisation du boutton dans la card */
+    text-decoration: none;
+    background-color: #030d27d5;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      /* Survol du boutton */
+      background-color: #00FFCC;
+      color: black;
+    }
+  }
+}
