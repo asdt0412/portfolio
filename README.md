@@ -88,3 +88,19 @@ npm install -g terser
 
 1. npm run minify-js
 
+## 6. Utilisation des commandes Docker Compose
+
+
+1. Recréer les conteneurs après modification :
+#### bash
+docker-compose up --build
+
+
+2. Arrêter les conteneurs :
+#### bash
+docker-compose down
+
+
+3. Voir les logs des services :
+### bash
+docker-compose logs
